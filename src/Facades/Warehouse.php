@@ -1,6 +1,6 @@
 <?php
 
-namespace Aron\Signature\Facades;
+namespace Aron\Warehouse\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
