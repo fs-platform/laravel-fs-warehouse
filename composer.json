@@ -1,0 +1,38 @@
+{
+    "name": "aron/laravel-fs-warehouse",
+    "description": "仓库信息查询",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aron.Yao",
+            "email": "aron.yao@feisu.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "ext-json": "*",
+        "php": "^7.4 || ^8.0",
+        "laravel/framework": "^8.12"
+    },
+    "autoload": {
+        "psr-4": {
+            "Aron\\Warehouse\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Aron\\Warehouse\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Aron\\Warehouse\\Provider\\WarehouseServiceProvider"
+            ],
+            "aliases": {
+                "Signature": "Aron\\Warehouse\\Facades\\Warehouse"
+            }
+        }
+    }
+}
