@@ -3,7 +3,6 @@
 
 namespace Aron\Warehouse\Service;
 
-
 class WarehouseService
 {
     /**
@@ -44,5 +43,4 @@ class WarehouseService
         }
         return $return;
     }
-
 }

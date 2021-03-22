@@ -16,7 +16,8 @@ class WarehouseTest extends TestCase
         $warehouse = new WarehouseService();
         $us_code = $config['US']['code'];
         $us_number = $config['US']['id'];
-        $au_number = $config['AU']['id'];;
+        $au_number = $config['AU']['id'];
+        ;
         $au_code = $config['AU']['code'];
         $de_code = $config['DE']['code'];
         $de_number = $config['DE']['id'];
