@@ -43,4 +43,23 @@ class WarehouseService
         }
         return $return;
     }
+
+    /**
+     * @Notes: 判断是否为欧盟国家
+     *
+     * @param string|int $country
+     * @return bool
+     * @author: Aron
+     * @Date: 2021/4/8
+     * @Time: 6:12 下午
+     */
+    public function isEuUnionCountry($country): bool
+    {
+        $config = $this->configInfo;
+        $related = $config["EuUnion"];
+        if (in_array($country, $related['id']) || in_array($country, $related['code'])) {
+            return true;
+        }
+        return false;
+    }
 }

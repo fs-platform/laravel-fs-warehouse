@@ -16,8 +16,7 @@ class WarehouseTest extends TestCase
         $warehouse = new WarehouseService();
         $us_code = $config['US']['code'];
         $us_number = $config['US']['id'];
-        $au_number = $config['AU']['id'];
-        ;
+        $au_number = $config['AU']['id'];;
         $au_code = $config['AU']['code'];
         $de_code = $config['DE']['code'];
         $de_number = $config['DE']['id'];
@@ -47,5 +46,16 @@ class WarehouseTest extends TestCase
         array_walk($sg_code, function ($val) use ($warehouse) {
             $this->assertEquals('SG', $warehouse->getWarehouseByCountry($val));
         });
+    }
+
+    public function testIsEuUnionWarehouse()
+    {
+        $warehouse = new WarehouseService();
+        $code = "DE";
+        $this->assertTrue($warehouse->isEuUnionCountry($code));
+        $id = 222;
+        $this->assertFalse($warehouse->isEuUnionCountry($id));
+        $id = 81;
+        $this->assertTrue($warehouse->isEuUnionCountry($id));
     }
 }
