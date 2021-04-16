@@ -47,17 +47,23 @@ class WarehouseService
     /**
      * @Notes: 判断是否为欧盟国家
      *
-     * @param string|int $country
+     * @param $country
+     * @param string $postCode
      * @return bool
      * @author: Aron
-     * @Date: 2021/4/8
-     * @Time: 6:12 下午
+     * @Date: 2021/4/16
+     * @Time: 11:59 上午
      */
-    public function isEuUnionCountry($country): bool
+    public function isEuUnionCountry($country, $postCode = ''): bool
     {
         $config = $this->configInfo;
         $related = $config["EuUnion"];
+        $northernIrelandRelatedPost = $config['northernIrelandRelatedPost'];
         if (in_array($country, $related['id']) || in_array($country, $related['code'])) {
+            return true;
+        }
+        //英国地区 邮编为北爱尔兰也属于欧盟
+        if (in_array($country, [222, 'GB']) && in_array($postCode, $northernIrelandRelatedPost)) {
             return true;
         }
         return false;

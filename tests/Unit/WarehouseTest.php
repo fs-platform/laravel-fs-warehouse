@@ -55,6 +55,7 @@ class WarehouseTest extends TestCase
         $this->assertTrue($warehouse->isEuUnionCountry($code));
         $id = 222;
         $this->assertFalse($warehouse->isEuUnionCountry($id));
+        $this->assertTrue($warehouse->isEuUnionCountry($id, 'BT11'));
         $id = 81;
         $this->assertTrue($warehouse->isEuUnionCountry($id));
     }
