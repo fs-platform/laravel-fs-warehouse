@@ -62,6 +62,8 @@ class WarehouseService
         if (in_array($country, $related['id']) || in_array($country, $related['code'])) {
             return true;
         }
+        $postCode = substr($postCode, 0, -2);
+        $postCode = str_replace(' ', '', $postCode);
         //英国地区 邮编为北爱尔兰也属于欧盟
         if (in_array($country, [222, 'GB']) && in_array($postCode, $northernIrelandRelatedPost)) {
             return true;
