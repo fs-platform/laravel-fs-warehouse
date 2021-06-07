@@ -70,4 +70,32 @@ class WarehouseService
         }
         return false;
     }
+
+    /**
+     * @Notes: 根据仓库Id获取仓库code
+     *
+     * @param int $warehouseId
+     * @return string
+     * @author: Aron
+     * @Date: 2021/6/7
+     * @Time: 3:12 下午
+     */
+    public function getWarehouseValue(int $warehouseId): string
+    {
+        return $this->configInfo["warehouse"][$warehouseId] ?? '';
+    }
+
+    /**
+     * @Notes: 根据仓库code获取仓库Id
+     *
+     * @param string $warehouse
+     * @return int
+     * @auther: Dylan
+     * @Date: 2021/6/4
+     * @Time: 11:58
+     */
+    public function getWarehouseKey(string $warehouse): int
+    {
+        return array_search($warehouse, $this->configInfo["warehouse"]) ?? 0;
+    }
 }
